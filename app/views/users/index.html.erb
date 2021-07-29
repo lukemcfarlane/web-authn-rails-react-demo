@@ -2,4 +2,20 @@
   <section class="header">
     <h1 class="title">Users</h1>
   </section>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr data-test="user">
+          <td><%= user.name %></td>
+          <td><%= user.username %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
