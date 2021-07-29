@@ -28,8 +28,14 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+
 group :test do
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem "rexml" # fix selenium-webdriver issue with ruby-3.x.x
+  gem "webdrivers"
 end
 
 group :development, :test do
