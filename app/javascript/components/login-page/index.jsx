@@ -1,36 +1,47 @@
 import React from "react";
 
-const LoginPage = () => (
-  <div class="login-page">
-    <div class="container">
-      <section class="header">
-        <h1 class="title">Login</h1>
-      </section>
-      <form class="login-form">
-        <div class="row">
-          <div class="six columns">
-            <label for="username">Username</label>
-            <input
-              class="u-full-width"
-              type="text"
-              placeholder="your_username"
-              id="username"
-            />
+const LoginPage = () => {
+  const register = () => {
+    window.location.href = "users";
+  };
+  const login = () => {
+    window.location.href = "users";
+  };
+
+  return (
+    <div className="login-page">
+      <div className="container">
+        <section className="header">
+          <h1 className="title">Login</h1>
+        </section>
+        <form className="login-form">
+          <div className="row">
+            <div className="six columns">
+              <label htmlFor="username">Username</label>
+              <input
+                className="u-full-width"
+                type="text"
+                placeholder="your_username"
+                id="username"
+              />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="two columns">
-            <button>Register</button>
+          <div className="row">
+            <div className="two columns">
+              <button type="button" onClick={register}>
+                Register
+              </button>
+            </div>
+            <div className="two columns">
+              <button type="button" className="button-primary" onClick={login}>
+                Login
+              </button>
+            </div>
           </div>
-          <div class="two columns">
-            <button type="submit" class="button-primary">
-              Login
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default LoginPage;
