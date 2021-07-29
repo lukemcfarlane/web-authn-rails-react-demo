@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'login#index'
 
   resources :users, only: :index
+  resources :sessions, only: :create
 end
