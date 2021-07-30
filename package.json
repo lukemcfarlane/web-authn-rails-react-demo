@@ -1,5 +1,8 @@
 {
   "name": "web-authn-rails-react-demo",
+  "scripts": {
+    "test": "jest"
+  },
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.14.5",
@@ -8,6 +11,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -17,6 +21,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "isomorphic-fetch": "^3.0.0",
+    "jest": "^27.0.6",
     "webpack-dev-server": "^3.11.2"
   }
 }

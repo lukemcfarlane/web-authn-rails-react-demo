@@ -1,0 +1,9 @@
+$error-red: #f218188e;
+
+.error {
+  color: $error-red;
+}
+
+input.has-error {
+  border-color: $error-red;
+}
