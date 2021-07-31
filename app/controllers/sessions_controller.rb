@@ -1,3 +1,6 @@
+
+# frozen_string_literal: true
+
 class SessionsController < ApiController
   def create
     user = User.find_by!(username: username)
