@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :users, only: :index
   resources :sessions, only: :create
+  delete :session, to: 'sessions#destroy', as: :logout
 end

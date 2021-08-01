@@ -7,7 +7,7 @@ RSpec.describe 'Login page', :js do
     User.create!(first_name: 'Luke', last_name: 'Skywalker', username: 'luke.skywalker@example.com')
   end
 
-  scenario 'user logs in' do
+  scenario 'user logs in then logs out' do
     visit '/'
     expect(page).to have_content 'Login'
 
@@ -15,6 +15,12 @@ RSpec.describe 'Login page', :js do
     click_button 'Login'
 
     expect(page).to have_content 'Users'
+
+    click_button 'Logout'
+    expect(page).to have_content 'Login'
+    visit '/users'
+    expect(page).not_to have_content 'Users'
+    expect(page).to have_content 'Login'
   end
 
   scenario 'user tries to log in with invalid username' do

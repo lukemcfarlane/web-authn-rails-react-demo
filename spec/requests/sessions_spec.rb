@@ -3,14 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Sessions endpoint', type: :request do
+  let!(:user) {
+    User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
+  }
+
   describe 'POST /sessions' do
     let(:params) { { username: username } }
-    let!(:user) {
-      User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
-    }
 
     before do
-      User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
       post '/sessions', params: params.to_json,
                         headers: { 'Content-Type' => 'application/json' }
     end
@@ -39,6 +39,20 @@ RSpec.describe 'Sessions endpoint', type: :request do
         expect(response).to have_http_status(:success)
         expect(session[:current_user_id]).to eq(user.id)
       end
+    end
+  end
+
+  describe 'DELETE /session' do
+    before do
+      allow_any_instance_of(ActionDispatch::Request)
+        .to receive(:session)
+        .and_return(current_user_id: user.id)
+    end
+
+    specify do
+      delete '/session'
+      expect(response).to redirect_to(root_path)
+      expect(session).not_to have_key(:current_user_id)
     end
   end
 end
