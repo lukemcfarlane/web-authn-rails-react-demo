@@ -7,18 +7,19 @@ RSpec.describe 'Users page', :js do
 
   before do
     User.create!(first_name: 'Han', last_name: 'Solo', username: 'han.solo@example.com')
-    User.create!(first_name: 'Leia', last_name: 'Organa', username: 'leia.organa@example.com')
+    User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
   end
 
   context 'when logged in' do
     before do
-      user = User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
+      user = User.create!(first_name: 'Leia', last_name: 'Organa', username: 'leia.organa@example.com')
       login(user)
     end
 
     scenario 'user views the page' do
       visit '/users'
-      expect(page).to have_content 'Users'
+      expect(page).to have_content 'Welcome, Leia!'
+      expect(page).to have_content 'Registered Users'
       expect(page).to have_selector '[data-test=user]', count: 3
 
       user_rows = page.all '[data-test=user]'
