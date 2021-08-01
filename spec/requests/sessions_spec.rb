@@ -6,11 +6,11 @@ RSpec.describe 'Sessions endpoint', type: :request do
   describe 'POST /sessions' do
     let(:params) { { username: username } }
     let!(:user) {
-      User.create!(name: 'Test User', username: 'test@example.com')
+      User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
     }
 
     before do
-      User.create!(name: 'Test User', username: 'test@example.com')
+      User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
       post '/sessions', params: params.to_json,
                         headers: { 'Content-Type' => 'application/json' }
     end

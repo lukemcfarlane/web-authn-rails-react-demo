@@ -12,7 +12,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr data-test="user">
-          <td><%= user.name %></td>
+          <td><%= user.full_name %></td>
           <td><%= user.username %></td>
         </tr>
       <% end %>

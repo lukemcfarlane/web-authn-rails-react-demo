@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Login page', :js do
   before do
-    User.create!(name: 'Luke Skywalker', username: 'luke.skywalker@example.com')
+    User.create!(first_name: 'Luke', last_name: 'Skywalker', username: 'luke.skywalker@example.com')
   end
 
   scenario 'user logs in' do

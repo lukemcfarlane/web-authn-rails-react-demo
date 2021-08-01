@@ -6,13 +6,13 @@ RSpec.describe 'Users page', :js do
   include SessionHelpers
 
   before do
-    User.create!(name: 'Han Solo', username: 'han.solo@example.com')
-    User.create!(name: 'Leia Organa', username: 'leia.organa@example.com')
+    User.create!(first_name: 'Han', last_name: 'Solo', username: 'han.solo@example.com')
+    User.create!(first_name: 'Leia', last_name: 'Organa', username: 'leia.organa@example.com')
   end
 
   context 'when logged in' do
     before do
-      user = User.create!(name: 'Test User', username: 'test@example.com')
+      user = User.create!(first_name: 'Test', last_name: 'User', username: 'test@example.com')
       login(user)
     end
 
